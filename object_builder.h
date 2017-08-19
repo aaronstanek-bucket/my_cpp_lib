@@ -103,6 +103,7 @@ namespace object_builder {
     psdmh <string> b;
     b = file_io::read(filename);
     psdmh <builder> ou;
+    ou.makeNew();
     ou.getPointer()->activate(b);
     return ou;
   };
