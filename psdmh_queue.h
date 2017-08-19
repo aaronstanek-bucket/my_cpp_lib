@@ -14,6 +14,13 @@ namespace psdmh_queue {
       };
     };
 
+  class pop_empty: public exception {
+    public:
+      virtual const char* what() const throw() {
+        return "pop_front was called on an empty psdmh_queue";
+      };
+    };
+
   template <class T> element {
     public:
       T value;
@@ -64,8 +71,7 @@ namespace psdmh_queue {
         }
         else {
           //count==0
-          psdmh < element<T> > ou;
-          return ou;
+          throw pop_empty();
         };
       };
       void clearQueue() {
